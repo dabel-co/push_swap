@@ -6,7 +6,7 @@
 #    By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 15:51:51 by dabel-co          #+#    #+#              #
-#    Updated: 2021/10/27 15:26:18 by dabel-co         ###   ########.fr        #
+#    Updated: 2021/11/02 18:36:14 by dabel-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,10 @@ C = $(addprefix ./src/ft_, $(addsuffix .c, $(FILES)))
 all: $(NAME)
 
 $(NAME) :	check_libft
-	@$(CC) $(FLAGS) $(LINK) $(C) $(GNL) ./src/libft/libft.a -o $(NAME)
+	@$(CC) $(FLAGS) $(LINK) $(C) $(GNL) ./Libft/libft.a -o $(NAME)
 check_libft :
-	@make bonus -C ./src/libft
+	@if test -d Libft; then echo Libft found! ; else git clone https://github.com/dabel-co/Libft.git; fi
+	@make extra -C ./Libft
 clean:
 	rm -f $(NAME)
 fclean: clean

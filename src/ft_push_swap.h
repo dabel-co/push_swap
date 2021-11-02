@@ -6,13 +6,13 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/10/27 14:47:56 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/02 17:30:28 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
-# include "./libft/libft.h"
+# include "../Libft/src/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 
