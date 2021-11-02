@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/02 17:30:28 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/02 19:51:53 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_stack
 	int	x;
 	struct s_stack *next;
 }				t_stack;
-int	ft_atoi_pointer(char *str, int *p);
-int	ft_isnumber(int c);
+
 #endif
 
