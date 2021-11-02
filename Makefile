@@ -6,7 +6,7 @@
 #    By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 15:51:51 by dabel-co          #+#    #+#              #
-#    Updated: 2021/11/02 19:50:57 by dabel-co         ###   ########.fr        #
+#    Updated: 2021/11/02 19:59:41 by dabel-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ all: $(NAME)
 $(NAME) :	check_libft
 	@$(CC) $(FLAGS) $(LINK) $(C) $(GNL) ./Libft/libft.a -o $(NAME)
 check_libft :
-	@if test -d Libft; then echo Libft found! ; else git clone https://github.com/dabel-co/Libft.git; fi
+	@if test -d Libft; then ( cd Libft ; git pull ) ; else git clone https://github.com/dabel-co/Libft.git; fi
 	@make extra -C ./Libft
 clean:
 	rm -f $(NAME)
