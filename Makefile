@@ -6,14 +6,15 @@
 #    By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 15:51:51 by dabel-co          #+#    #+#              #
-#    Updated: 2021/11/02 19:59:41 by dabel-co         ###   ########.fr        #
+#    Updated: 2021/11/03 18:32:40 by dabel-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-FLAGS = #-g3 -fsanitize=address #-Wall -Werror -Wextra
+FLAGS =# -g3 -fsanitize=address #-Wall -Werror -Wextra
 CC = cc
 FILES =	push_swap \
+		operations \
 
 C = $(addprefix ./src/ft_, $(addsuffix .c, $(FILES)))
 #REMOVE FLAG

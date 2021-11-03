@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/02 19:51:53 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/03 18:25:50 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-typedef struct s_stack
-{
-	int	x;
-	struct s_stack *next;
-}				t_stack;
-
+void	ft_swap(t_list **a, t_list **b, char mode);
 #endif
 
