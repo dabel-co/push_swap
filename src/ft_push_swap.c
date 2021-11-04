@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/03 19:10:45 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:35:02 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 
 	while (*argv != '\0')
 	{
-		if (ft_atoi_pointer(argv, &p) == -1 || (!ft_isnumber(*argv) && *argv != ' '))
+		if (ft_atoi_pointer(argv, &p) == -1
+			|| (!ft_isnumber(*argv) && *argv != ' '))
 		{
 			printf("bad parse\n");
 			exit(0);
@@ -32,10 +33,11 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 	return (stack);
 }
 
-int	main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
+	int		d;
 
 	a = NULL;
 	b = NULL;
@@ -46,11 +48,18 @@ int	main (int argc, char **argv)
 		a = ft_fill(*argv, a);
 		i++;
 	}
-	printf("%d\n", ft_lstsize(a));
-	//ft_swap(&a, &b, 'a');
+	d = 0;
 	while (a != NULL)
 	{
+		d = (int)a->content;
 		printf("%d\n", a->content);
 		a = a->next;
+	}
+	printf("STACK_B\n");
+	while (b != NULL)
+	{
+		d = (int)b->content;
+		printf("%d\n", b->content);
+		b = b->next;
 	}
 }

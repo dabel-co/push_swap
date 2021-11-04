@@ -6,7 +6,7 @@
 #    By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 15:51:51 by dabel-co          #+#    #+#              #
-#    Updated: 2021/11/03 18:32:40 by dabel-co         ###   ########.fr        #
+#    Updated: 2021/11/04 17:35:48 by dabel-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ check_libft :
 clean:
 	rm -f $(NAME)
 fclean: clean
-	make fclean -C ./src/libft
+	make fclean -C ./Libft
 re: clean all
 
 .PHONY : all clean fclean re check_libft
