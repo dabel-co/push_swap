@@ -6,7 +6,7 @@
 #    By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 15:51:51 by dabel-co          #+#    #+#              #
-#    Updated: 2021/11/04 17:35:48 by dabel-co         ###   ########.fr        #
+#    Updated: 2021/11/04 18:37:07 by dabel-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ FLAGS =# -g3 -fsanitize=address #-Wall -Werror -Wextra
 CC = cc
 FILES =	push_swap \
 		operations \
+		short_sorting \
 
 C = $(addprefix ./src/ft_, $(addsuffix .c, $(FILES)))
 #REMOVE FLAG
