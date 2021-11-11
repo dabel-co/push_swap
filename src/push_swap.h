@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/04 18:37:06 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/11 12:32:09 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	ft_push(t_list **a, t_list **b, char mode);
 void	ft_rotate(t_list **a, t_list **b, char mode);
 void	ft_rotate_rev(t_list **a, t_list **b, char mode);
 void	ft_rotate_rev_r(t_list **a, t_list **b, char mode);
+void	ft_small_short(t_list **a, t_list **b);
 #endif
