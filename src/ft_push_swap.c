@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/11 17:20:57 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:58:09 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,31 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 	}
 	return (stack);
 }
-
+void	checking(t_list **a, t_list **b)
+{
+	t_list *x = *a;
+	t_list *y = *b;
+	int d = 0;
+	printf("STACK_A\n");
+	while (x != NULL)
+	{
+		d = (int)x->content;
+		usleep(100000);
+		printf("%d\n", x->content);
+	//	printf("%p\n", x->next);
+		x = x->next;
+	}
+	if (y != NULL)
+		printf("STACK_B\n");
+	while (y != NULL)
+	{
+		d = (int)y->content;
+		usleep(100000);
+		printf("%d\n", y->content);
+	//	printf("%p\n", y->next);
+		y = y->next;
+	}
+}
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -44,34 +68,14 @@ int	main(int argc, char **argv)
 	i = 1;
 	while (i++ < argc && argv++)
 		a = ft_fill(*argv, a);
-	if (ft_lstsize(a) <= 5)
-		ft_small_short(&a, &b);
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//	if (ft_lstsize(a) <= 5)
+//		ft_small_short(&a, &b);	
 	//////////
-	int d = 0;
-	printf("STACK_A\n");
-	while (a != NULL)
-	{
-		d = (int)a->content;
-		sleep(1);
-		printf("%d\n", a->content);
-		a = a->next;
-	}
-	printf("STACK_B\n");
-	while (b != NULL)
-	{
-		d = (int)b->content;
-		printf("%d\n", b->content);
-		b = b->next;
-	}
+	checking (&a, &b);
+	//ft_swap(&a, &b, 'a');
+	ft_push(&a, &b, 'b');
+	checking (&a, &b);
+	ft_push(&a, &b, 'b');
+	//ft_push(&a, &b, 'a');
+	checking (&a, &b);
 }

@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:10:39 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/11 17:20:53 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:58:11 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,21 @@ void	ft_swap(t_list **a, t_list **b, char mode)
 
 void	ft_push(t_list **a, t_list **b, char mode)
 {
-	void	*aux;
+	void	*aux = NULL;
 
 	if (mode == 'a' && ft_lstsize(*b) > 0)
 	{
+		aux = (*a)->next;
 		ft_lstadd_front(a, ft_lstnew((*b)->content));
-		aux = (*b)->next;
-		(*b) = aux;
+		(*a)->next = aux;
 		write (1, "pa\n", 3);
 	}
 	if (mode == 'b' && ft_lstsize(*a) > 0)
 	{
+		if ((*b) != NULL)
+			aux = (*b)->next;
 		ft_lstadd_front(b, ft_lstnew((*a)->content));
+		(*b)->next = aux;
 		aux = (*a)->next;
 		(*a) = aux;
 		write (1, "pb\n", 3);
@@ -61,7 +64,6 @@ void	ft_rotate(t_list **a, t_list **b, char mode)
 	if ((mode == 'a' || mode == 'r') && ft_lstsize(*a) > 1)
 	{
 		ft_lstadd_back(a, ft_lstnew((*a)->content));
-		free(*a);
 		(*a) = (*a)->next;
 		if (mode == 'a')
 			write(1, "ra\n", 3);

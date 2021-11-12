@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/11 12:32:09 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:58:10 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+void	checking(t_list **a, t_list **b);
 void	ft_swap(t_list **a, t_list **b, char mode);
 void	ft_push(t_list **a, t_list **b, char mode);
 void	ft_rotate(t_list **a, t_list **b, char mode);
