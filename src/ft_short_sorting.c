@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:51:53 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/12 16:58:12 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:43:52 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	ft_small_short(t_list **a, t_list **b)
 	if ((*a)->content > (*a)->next->content &&
 			(*a)->next->content < (*a)->next->next->content)
 		ft_rotate(a, b, 'a');
-	checking(a, b);
 	if (ft_lstsize(*b) != 0)
 		ft_short_five(a, b);
 }

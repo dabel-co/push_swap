@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/12 16:58:09 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:43:54 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 	while (*argv != '\0')
 	{
 		if (ft_atoi_pointer(argv, &p) == -1
-			|| (!ft_isnumber(*argv) && *argv != ' '))
+			|| (!ft_isnumber(*argv) && *argv != ' ') || !ft_lst_repeat(stack, p))
 		{
 			printf("bad parse\n");
 			exit(0);
@@ -68,14 +68,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	while (i++ < argc && argv++)
 		a = ft_fill(*argv, a);
-//	if (ft_lstsize(a) <= 5)
-//		ft_small_short(&a, &b);	
-	//////////
-	checking (&a, &b);
-	//ft_swap(&a, &b, 'a');
-	ft_push(&a, &b, 'b');
-	checking (&a, &b);
-	ft_push(&a, &b, 'b');
-	//ft_push(&a, &b, 'a');
+	if (ft_lstsize(a) <= 5)
+		ft_small_short(&a, &b);	
 	checking (&a, &b);
 }
