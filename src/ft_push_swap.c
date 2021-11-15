@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/15 15:43:54 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/15 19:47:33 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 	while (*argv != '\0')
 	{
 		if (ft_atoi_pointer(argv, &p) == -1
-			|| (!ft_isnumber(*argv) && *argv != ' ') || !ft_lst_repeat(stack, p))
+			|| (!ft_isnumber(*argv) && *argv != ' '))
 		{
 			printf("bad parse\n");
 			exit(0);
 		}
 		ft_lstadd_back(&stack, ft_lstnew((void *)(long)p));
+		if (!ft_lst_repeat(stack, p))
+				printf("SAME\n");
 		while (ft_isnumber(*argv) && *argv != ' ' && *argv != '\0')
 			argv++;
 		if (*argv == ' ')

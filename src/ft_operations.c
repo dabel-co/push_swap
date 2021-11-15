@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:10:39 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/15 15:43:53 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/15 19:47:32 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,16 @@ void	ft_swap(t_list **a, t_list **b, char mode)
 
 void	ft_push(t_list **a, t_list **b, char mode)
 {
-	void	*aux = NULL;
-
 	if (mode == 'a' && ft_lstsize(*b) > 0)
 	{
 		ft_lstadd_front(a, ft_lstnew((*b)->content));
-		(*b) = (*b)->next;	
+		(*b) = (*b)->next;
 		write (1, "pa\n", 3);
 	}
 	if (mode == 'b' && ft_lstsize(*a) > 0)
 	{
 		ft_lstadd_front(b, ft_lstnew((*a)->content));
-		(*a) = (*a)->next;	
+		(*a) = (*a)->next;
 		write (1, "pb\n", 3);
 	}
 }

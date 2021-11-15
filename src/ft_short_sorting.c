@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:51:53 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/15 15:43:52 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/15 19:32:19 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,15 @@
 
 static void	ft_short_five(t_list **a, t_list **b)
 {
-	if (ft_lstsize(*b) > 1  && (*b)->content > (*b)->next->content)
-		ft_swap(a, b, 'b'); 
 	ft_push(a, b, 'a');
-	checking(a, b);
-	if ((*a)->content > (*a)->next->next->content && (*a)->content < (*a)->next->next->next->content)
+	if ((*a)->content > (*a)->next->next->next->content)
+		ft_rotate(a, b, 'a');
+	if ((*a)->content > (*a)->next->next->content && (*a)->content <
+			(*a)->next->next->next->content)
 		ft_rotate_rev(a, b, 'a');
-	checking(a, b);
-	if ((*a)->content > (*a)->next->content &&
-			(*a)->content > (*a)->next->next->next->content)
+	if ((*a)->content > (*a)->next->content)
 		ft_swap(a, b, 'a');
-	checking(a, b);
-	if ((*a)->content > (*a)->next->next->next->content)
-		ft_rotate(a, b,'a');
-	checking(a, b);
-	if ((*a)->content > (*a)->next->next->next->content)
-		ft_rotate(a, b,'a');
+	//RA-RA
 }
 
 void	ft_small_short(t_list **a, t_list **b)
