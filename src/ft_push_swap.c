@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/15 19:47:33 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/16 15:52:05 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 			exit(0);
 		}
 		ft_lstadd_back(&stack, ft_lstnew((void *)(long)p));
-		if (!ft_lst_repeat(stack, p))
+		if (ft_lst_repeat(stack) == -1)
 				printf("SAME\n");
 		while (ft_isnumber(*argv) && *argv != ' ' && *argv != '\0')
 			argv++;

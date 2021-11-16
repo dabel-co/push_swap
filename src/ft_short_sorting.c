@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:51:53 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/15 19:32:19 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/16 15:52:07 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ static void	ft_short_five(t_list **a, t_list **b)
 		ft_rotate_rev(a, b, 'a');
 	if ((*a)->content > (*a)->next->content)
 		ft_swap(a, b, 'a');
-	//RA-RA
+	if (ft_lst_order(*a) == -1)
+	{
+		ft_rotate(a, b ,'a');
+		ft_rotate(a, b ,'a');
+	}
 }
 
 void	ft_small_short(t_list **a, t_list **b)
