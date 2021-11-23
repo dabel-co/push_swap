@@ -6,7 +6,7 @@
 #    By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 15:51:51 by dabel-co          #+#    #+#              #
-#    Updated: 2021/11/22 11:55:40 by dabel-co         ###   ########.fr        #
+#    Updated: 2021/11/22 15:19:19 by dabel-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC = cc
 FILES =	push_swap \
 		operations \
 		short_sorting \
+		big_sorting \
 
 C = $(addprefix ./src/ft_, $(addsuffix .c, $(FILES)))
 #REMOVE FLAG

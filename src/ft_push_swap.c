@@ -6,12 +6,32 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/22 12:35:48 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/23 19:18:00 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	ft_chunk_value(t_list *a, int chunks)
+{
+	t_list	*aux;
+	int		min;
+	int		max;
+	int		r;
+	int		rest;
+
+	min = ft_find_number(&a, 2);
+	max = ft_find_number(&a, 4);
+	r = (max - min) / chunks;
+	rest = (max - min) % chunks;
+	while (rest > 0)
+	{
+		rest = rest - chunks;
+		r++;
+	}
+	//printf("CHUNK VALUE = %d\n REST = %d\n", r, rest);
+	return (r);
+}
 static t_list	*ft_lst_add_element(int content)
 {
 	t_list	*new;
@@ -80,7 +100,9 @@ int	main(int argc, char **argv)
 		a = ft_fill(*argv, a);
 	if (ft_lstsize(a) <= 5)
 		ft_small_short(&a, &b);
-	//else
-		//ft_big_short(&a, &b);
+	else if (ft_lstsize(a) <= 100)
+		ft_big_short(&a, &b, 4, ft_chunk_value(a, 4));
+	else if (ft_lstsize(a) <= 500)
+		ft_big_short(&a, &b, 8, ft_chunk_value(a, 8));
 	checking (&a, &b);
 }
