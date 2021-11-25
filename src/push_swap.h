@@ -23,8 +23,10 @@ typedef struct s_param
 	int		ratio;
 	int		chunk;
 	int		progress;
-	
-}
+	int		rotations;
+	int		stop;
+}				t_param;
+
 
 void	checking(t_list **a, t_list **b);
 void	ft_swap(t_list **a, t_list **b, char mode);

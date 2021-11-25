@@ -73,37 +73,34 @@ void	ft_step_2(t_list **a, t_list **b)
 		ft_rotate(a, b, 'a');
 	}
 }
-void	ft_step_1(t_list **a, t_list **b, int ratio, int progress)
+void	ft_step_1(t_list **a, t_list **b, t_param *d, int ratio)
 {
-	int min;
-	int i;	
-	i = ft_lstsize(*a) - ((ft_lstsize(*a) / chunks) * (progress - 1));
-	min = ft_find_number(a, 2);
-	while (i > 0)
+	d->min = ft_find_number(a, 2) + (ratio * (d->progress - 1));
+	d->max = ft_find_number(a, 2) + (ratio * d->progress);
+	while (d->rotations > 0)
 	{
-		if (*(int *)(*a)->content <= min + (ratio * progress) &&
-				*(int *)(*a)->content >= min + (ratio * (progress - 1)))
+		if (*(int *)(*a)->content <= d->max && *(int *)(*a)->content >= d->min)
 			ft_push(a, b, 'b');
 		else
 			ft_rotate(a, b, 'a');
-		i--;
+		d->rotations--;
 	}
-	//checking(a, b);
-	//ft_step_2(a, b);
+	while (d->mode != 0)
+	{
+		ft_rotate_rev(a, b, 'a');
+		d->mode--;
+	}
+	ft_step_2(a, b);
 }
 
 void	ft_big_short(t_list **a, t_list **b, int chunks, int ratio)
 {
-	int progress;
-	int lap;
-	int i;
-	progress = 1;
-	while (progress <= chunks)
+	t_param	d;
+
+	d.progress = 1;
+	d.mode = 0;
+	while (d.progress < chunks)
 	{
-		i = ft_lstsize(*a) - ((ft_lstsize(*a) / chunks) * (progress - 1)) + (progress - 1) * 12;
-		ft_step_1(a, b, ratio, progress, i);
-		lap = ft_find_number(b, 2);
-		ft_step_2(a, b);
-		progress++;
+			
 	}
 }
