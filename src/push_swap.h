@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/23 19:18:01 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/26 18:06:15 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ typedef struct s_param
 {
 	int		min;
 	int		max;
-	int		ratio;
-	int		chunk;
+	int		step;
+	int		rest;
 	int		progress;
-	int		rotations;
-	int		stop;
 }				t_param;
 
 
@@ -35,7 +33,7 @@ void	ft_rotate(t_list **a, t_list **b, char mode);
 void	ft_rotate_rev(t_list **a, t_list **b, char mode);
 void	ft_rotate_rev_r(t_list **a, t_list **b, char mode);
 void	ft_small_short(t_list **a, t_list **b);
-void	ft_big_short(t_list **a, t_list **b, int chunks, int ratio);
+void	ft_big_short(t_list **a, t_list **b, int chunks);
 int		ft_find_number(t_list **a, int mode);
 void	checking(t_list **a, t_list **b);
 #endif
