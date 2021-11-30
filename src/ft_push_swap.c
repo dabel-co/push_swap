@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/26 18:06:16 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/30 14:43:58 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,5 @@ int	main(int argc, char **argv)
 		ft_big_short(&a, &b, 8);
 	//add free
 	//probably also need free's in the fucking operations, leaks everywhere.
-	checking (&a, &b);
+//		checking (&a, &b);
 }

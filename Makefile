@@ -6,12 +6,12 @@
 #    By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 15:51:51 by dabel-co          #+#    #+#              #
-#    Updated: 2021/11/22 15:19:19 by dabel-co         ###   ########.fr        #
+#    Updated: 2021/11/30 14:44:19 by dabel-co         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-FLAGS = -g3 -fsanitize=address #-Wall -Werror -Wextra
+FLAGS = #-g3 -fsanitize=address #-Wall -Werror -Wextra
 CC = cc
 FILES =	push_swap \
 		operations \

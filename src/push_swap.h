@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/26 18:06:15 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/30 14:43:54 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_param
 	int		max;
 	int		step;
 	int		rest;
+	int		last;
 	int		progress;
 }				t_param;
 
