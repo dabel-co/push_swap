@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:10:39 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/23 17:38:25 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/30 15:53:41 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ft_rotate_rev(t_list **a, t_list **b, char mode)
 		ft_lstadd_front(b, ft_lstnew(aux->next->content));
 		aux->next = NULL;
 		if (mode == 'b')
-			write(1, "rra\n", 4);
+			write(1, "rrb\n", 4);
 	}
 }
 

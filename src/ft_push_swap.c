@@ -6,11 +6,59 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/30 14:43:58 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/11/30 19:25:49 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int    ft_find_position(t_list **a, int find)
+{
+    t_list    *aux;
+    int        i;
+    
+    aux = *a;
+    i = 0;
+    while (*(int *)aux->content != find)
+    {
+        i++;
+        aux = aux->next;
+    }
+    return (i);
+}
+
+/* The modes work as follow :
+ * mode 2 to get the smallest value
+ * mode 3 to get the position of the smallest value
+ * mode 4 to get the biggest value
+ * mode 5 to get the position of the biggest value */
+int    ft_find_number(t_list **a, int mode)
+{
+    t_list    *aux;
+    int        i;
+    int        r;
+    int        value;
+
+    i = 0;
+    r = 0;
+    aux = *a;
+    value = *(int *)aux->content;
+    while (aux != NULL)
+    {
+        if ((value > *(int *)aux->content && mode <= 3)
+            || (value < *(int *)aux->content && mode >= 4))
+        {
+            r = i;
+            value = *(int *)aux->content;
+        }
+        i++;
+        aux = aux->next;
+    }
+    if (mode % 2 == 0)
+        return (value);
+    else
+        return (r);
+}
 
 static t_list	*ft_lst_add_element(int content)
 {
@@ -86,5 +134,5 @@ int	main(int argc, char **argv)
 		ft_big_short(&a, &b, 8);
 	//add free
 	//probably also need free's in the fucking operations, leaks everywhere.
-//		checking (&a, &b);
+		checking (&a, &b);
 }
