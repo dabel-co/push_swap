@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/02 16:42:09 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:50:01 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int    ft_find_number(t_list **a, int mode)
         return (r);
 }
 
-static t_list	*ft_lst_add_element(int content)
+t_list	*ft_lst_add_element(int content)
 {
 	t_list	*new;
 
@@ -130,6 +130,7 @@ int	main(int argc, char **argv)
 		ft_error(&a);
 	while (i++ < argc && argv++)
 		a = ft_fill(*argv, a);
+	
 	if (ft_lst_order(a) == 0)
 		return (0) ;
 	if (ft_lstsize(a) <= 5)
@@ -138,7 +139,7 @@ int	main(int argc, char **argv)
 		ft_big_short(&a, &b, 4);
 	else
 		ft_big_short(&a, &b, 8);
-	ft_free(&a, &b);
+	
+	//checking (&a, &b);
 	system("leaks push_swap");
-//		checking (&a, &b);
 }

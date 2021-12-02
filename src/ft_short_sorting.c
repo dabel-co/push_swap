@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:51:53 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/02 17:13:22 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:44:33 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void    ft_lstclearr(t_list **lst, void (*del)(void *))
 }
 void	ft_free(t_list **a, t_list **b)
 {
-	ft_lstclearr(a, free);
-	ft_lstclearr(b, free);
+	//ft_lstclearr(a, free);
+	//ft_lstclearr(b, free);
 }
 static void	ft_two(t_list **a, t_list **b)
 {

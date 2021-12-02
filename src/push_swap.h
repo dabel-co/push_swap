@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/02 13:00:28 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:19:52 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ int		ft_find_number(t_list **a, int mode);
 int		ft_find_position(t_list **a, int find);
 void	ft_error(t_list **a);
 void	ft_free(t_list **a, t_list **b);
+t_list	*ft_lst_add_element(int content);
 #endif
