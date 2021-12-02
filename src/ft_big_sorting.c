@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:40:50 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/30 19:25:48 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/02 13:58:39 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	ft_step_1(t_list **a, t_list **b, t_param *d)
 	if (ft_find_position(a, d->min - 1) > ft_lstsize(*a))
 	{
 		while (ft_find_position(a, d->min - 1) != ft_lstsize(*a) - 1)
-			ft_rotate_rev(a, b, 'a');
+			ft_rotate(a, b, 'a');
 	}
 	else
 	{
 		while (ft_find_position(a, d->min - 1) != ft_lstsize(*a) - 1)
-			ft_rotate(a, b, 'a');
+			ft_rotate_rev(a, b, 'a');
 	}
 
 }
@@ -88,6 +88,6 @@ void	ft_big_short(t_list **a, t_list **b, int chunks)
 		ft_step_2(a, b);
 		d.progress++;
 	}
-	while (ft_find_number(a, 3) != 0)
+		while (ft_find_number(a, 3) != 0)
 			ft_rotate(a, b, 'a');
 }

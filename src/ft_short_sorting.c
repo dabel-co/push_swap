@@ -6,11 +6,41 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:51:53 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/22 17:42:15 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/02 17:13:22 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_error(t_list **a)
+{
+	write(1, "Error\n", 6);
+	exit (0);
+}
+void    ft_lstclearr(t_list **lst, void (*del)(void *))
+{
+    t_list  *aux;
+
+    if (!lst)
+        return ;
+    while (*lst)
+    {
+        aux = (*lst)->next;
+        free((*lst)->content);
+		free(*lst);
+        *lst = aux;
+    }
+}
+void	ft_free(t_list **a, t_list **b)
+{
+	ft_lstclearr(a, free);
+	ft_lstclearr(b, free);
+}
+static void	ft_two(t_list **a, t_list **b)
+{
+	if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+		ft_swap(a, b, 'a');
+}
 
 static void	ft_move(t_list **a, t_list **b)
 {
@@ -31,6 +61,11 @@ static void	ft_move(t_list **a, t_list **b)
 
 void	ft_small_short(t_list **a, t_list **b)
 {
+	if (ft_lstsize(*a) == 2)
+	{
+		ft_two(a, b);
+		return ;
+	}
 	while (ft_lstsize(*a) > 3)
 		ft_move(a, b);
 	if (*(int *)(*a)->content > *(int *)(*a)->next->content

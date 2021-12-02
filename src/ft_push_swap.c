@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/11/30 19:25:49 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:42:09 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 	{
 		if (ft_atoi_pointer(argv, &p) == -1
 			|| (!ft_isnumber(*argv) && *argv != ' '))
-		{
-			printf("bad parse\n");
-			exit(0);
-		}
+			ft_error(&stack);
 		ft_lstadd_back(&stack, ft_lst_add_element(p));
 		if (ft_lst_repeat(stack) == -1)
-				printf("SAME\n");
+		{
+			ft_error(&stack);
+			printf("joder\n");
+		}
 		while (ft_isnumber(*argv) && *argv != ' ' && *argv != '\0')
 			argv++;
 		if (*argv == ' ')
@@ -124,15 +124,21 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	i = 1;
+	if (argc == 1)
+		return (0);
+	if (ft_strlen(argv[1]) == 0)
+		ft_error(&a);
 	while (i++ < argc && argv++)
 		a = ft_fill(*argv, a);
+	if (ft_lst_order(a) == 0)
+		return (0) ;
 	if (ft_lstsize(a) <= 5)
 		ft_small_short(&a, &b);
 	else if (ft_lstsize(a) <= 100)
 		ft_big_short(&a, &b, 4);
 	else
 		ft_big_short(&a, &b, 8);
-	//add free
-	//probably also need free's in the fucking operations, leaks everywhere.
-		checking (&a, &b);
+	ft_free(&a, &b);
+	system("leaks push_swap");
+//		checking (&a, &b);
 }
