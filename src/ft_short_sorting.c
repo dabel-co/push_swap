@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:51:53 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/02 19:44:33 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:21:02 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,22 @@ void	ft_error(t_list **a)
 	write(1, "Error\n", 6);
 	exit (0);
 }
-void    ft_lstclearr(t_list **lst, void (*del)(void *))
-{
-    t_list  *aux;
 
-    if (!lst)
-        return ;
-    while (*lst)
-    {
-        aux = (*lst)->next;
-        free((*lst)->content);
-		free(*lst);
-        *lst = aux;
-    }
-}
-void	ft_free(t_list **a, t_list **b)
+void	ft_lstclearr(t_list **lst, void (*del)(void *))
 {
-	//ft_lstclearr(a, free);
-	//ft_lstclearr(b, free);
+	t_list	*aux;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		aux = (*lst)->next;
+		free((*lst)->content);
+		free(*lst);
+		*lst = aux;
+	}
 }
+
 static void	ft_two(t_list **a, t_list **b)
 {
 	if (*(int *)(*a)->content > *(int *)(*a)->next->content)

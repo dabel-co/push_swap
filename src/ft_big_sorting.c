@@ -6,16 +6,14 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:40:50 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/02 17:17:49 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:59:40 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_step_2(t_list **a, t_list **b)
+static void	ft_step_2(t_list **a, t_list **b, int i)
 {
-	int i;
-
 	while (ft_lstsize(*b) != 0)
 	{
 		i = ft_find_number(b, 5);
@@ -28,7 +26,7 @@ void	ft_step_2(t_list **a, t_list **b)
 		}
 		ft_push(a, b, 'a');
 		if (ft_lstsize(*b) == 0)
-			break;
+			break ;
 		i = ft_find_number(b, 3);
 		while (*(int *)(*b)->content != ft_find_number(b, 2))
 		{
@@ -41,22 +39,22 @@ void	ft_step_2(t_list **a, t_list **b)
 		ft_rotate(a, b, 'a');
 	}
 }
-void	ft_step_1(t_list **a, t_list **b, t_param *d)
+
+static void	ft_step_1(t_list **a, t_list **b, t_param *d)
 {
 	d->min = ft_find_number(a, 2) + (d->step * (d->progress - 1));
 	d->max = ft_find_number(a, 2) + (d->step * d->progress) + d->last;
-//	printf("vuelta ->%d, min ->%d, max ->%d\n", d->progress, d->min, d->max);
+	printf("vuelta ->%d, min ->%d, max ->%d\n", d->progress, d->min, d->max);
 	while (ft_lstsize(*b) != d->step + d->last)
 	{
-	//	printf("%d %d\n", ft_lstsize(*b), d->loop);
-	//	printf("vuelta ->%d, min ->%d, max ->%d\n", d->progress, d->min, d->max);
-		//if (d->progress == 6)
-		//	usleep(1000000);
+		printf("%d - %d\n ", ft_lstsize(*b), d->step + d->last);
+		printf("vuelta ->%d, min ->%d, max ->%d\n", d->progress, d->min, d->max);
 		if (*(int *)(*a)->content < d->max && *(int *)(*a)->content >= d->min)
 			ft_push(a, b, 'b');
 		else
 			ft_rotate(a, b, 'a');
 	}
+	sleep(1);
 	if (d->progress == 1)
 		return ;
 	if (ft_find_position(a, d->min - 1) > ft_lstsize(*a))
@@ -69,7 +67,6 @@ void	ft_step_1(t_list **a, t_list **b, t_param *d)
 		while (ft_find_position(a, d->min - 1) != ft_lstsize(*a) - 1)
 			ft_rotate_rev(a, b, 'a');
 	}
-
 }
 
 void	ft_big_short(t_list **a, t_list **b, int chunks)
@@ -85,9 +82,9 @@ void	ft_big_short(t_list **a, t_list **b, int chunks)
 		if (d.progress == chunks)
 			d.last = d.rest;
 		ft_step_1(a, b, &d);
-		ft_step_2(a, b);
+		ft_step_2(a, b, 0);
 		d.progress++;
 	}
-		while (ft_find_number(a, 3) != 0)
-			ft_rotate(a, b, 'a');
+	while (ft_find_number(a, 3) != 0)
+		ft_rotate(a, b, 'a');
 }

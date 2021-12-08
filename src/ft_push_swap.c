@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/02 19:50:01 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:25:36 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,6 @@ int	main(int argc, char **argv)
 	else
 		ft_big_short(&a, &b, 8);
 	
-	//checking (&a, &b);
-	system("leaks push_swap");
+	checking (&a, &b);
+//	system("leaks push_swap");
 }

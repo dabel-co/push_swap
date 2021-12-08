@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:10:39 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/02 19:47:55 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:23:59 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,6 @@ void	ft_rotate_rev_aux(t_list **a)
 
 void	ft_rotate_rev(t_list **a, t_list **b, char mode)
 {
-	t_list	*aux;
-
 	if ((mode == 'a' || mode == 'r') && ft_lstsize(*a) > 1)
 	{
 		ft_rotate_rev_aux(a);
