@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:51:53 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/08 18:21:02 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:19:07 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 void	ft_error(t_list **a)
 {
 	write(1, "Error\n", 6);
+	ft_free(a);
 	exit (0);
 }
 
-void	ft_lstclearr(t_list **lst, void (*del)(void *))
+void	ft_free(t_list **lst)
 {
 	t_list	*aux;
 

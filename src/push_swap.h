@@ -6,7 +6,7 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:17:42 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/08 18:59:42 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:19:09 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ typedef struct s_param
 	int		rest;
 	int		last;
 	int		progress;
+	int		stop;
 }				t_param;
 
-
-void	checking(t_list **a, t_list **b);
 void	ft_swap(t_list **a, t_list **b, char mode);
 void	ft_push(t_list **a, t_list **b, char mode);
 void	ft_rotate(t_list **a, t_list **b, char mode);
@@ -39,6 +38,6 @@ void	ft_big_short(t_list **a, t_list **b, int chunks);
 int		ft_find_number(t_list **a, int mode);
 int		ft_find_position(t_list **a, int find);
 void	ft_error(t_list **a);
-void	ft_free(t_list **a, t_list **b);
+void	ft_free(t_list **lst);
 t_list	*ft_lst_add_element(int content);
 #endif

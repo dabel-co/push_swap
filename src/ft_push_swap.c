@@ -6,25 +6,25 @@
 /*   By: dabel-co <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:00:32 by dabel-co          #+#    #+#             */
-/*   Updated: 2021/12/08 17:25:36 by dabel-co         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:19:10 by dabel-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    ft_find_position(t_list **a, int find)
+int	ft_find_position(t_list **a, int find)
 {
-    t_list    *aux;
-    int        i;
-    
-    aux = *a;
-    i = 0;
-    while (*(int *)aux->content != find)
-    {
-        i++;
-        aux = aux->next;
-    }
-    return (i);
+	t_list	*aux;
+	int		i;
+
+	aux = *a;
+	i = 0;
+	while (*(int *)aux->content != find)
+	{
+		i++;
+		aux = aux->next;
+	}
+	return (i);
 }
 
 /* The modes work as follow :
@@ -32,32 +32,32 @@ int    ft_find_position(t_list **a, int find)
  * mode 3 to get the position of the smallest value
  * mode 4 to get the biggest value
  * mode 5 to get the position of the biggest value */
-int    ft_find_number(t_list **a, int mode)
+int	ft_find_number(t_list **a, int mode)
 {
-    t_list    *aux;
-    int        i;
-    int        r;
-    int        value;
+	t_list	*aux;
+	int		i;
+	int		r;
+	int		value;
 
-    i = 0;
-    r = 0;
-    aux = *a;
-    value = *(int *)aux->content;
-    while (aux != NULL)
-    {
-        if ((value > *(int *)aux->content && mode <= 3)
-            || (value < *(int *)aux->content && mode >= 4))
-        {
-            r = i;
-            value = *(int *)aux->content;
-        }
-        i++;
-        aux = aux->next;
-    }
-    if (mode % 2 == 0)
-        return (value);
-    else
-        return (r);
+	i = 0;
+	r = 0;
+	aux = *a;
+	value = *(int *)aux->content;
+	while (aux != NULL)
+	{
+		if ((value > *(int *)aux->content && mode <= 3)
+			|| (value < *(int *)aux->content && mode >= 4))
+		{
+			r = i;
+			value = *(int *)aux->content;
+		}
+		i++;
+		aux = aux->next;
+	}
+	if (mode % 2 == 0)
+		return (value);
+	else
+		return (r);
 }
 
 t_list	*ft_lst_add_element(int content)
@@ -84,10 +84,7 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 			ft_error(&stack);
 		ft_lstadd_back(&stack, ft_lst_add_element(p));
 		if (ft_lst_repeat(stack) == -1)
-		{
 			ft_error(&stack);
-			printf("joder\n");
-		}
 		while (ft_isnumber(*argv) && *argv != ' ' && *argv != '\0')
 			argv++;
 		if (*argv == ' ')
@@ -95,26 +92,7 @@ static	t_list	*ft_fill(char *argv, t_list *stack)
 	}
 	return (stack);
 }
-void	checking(t_list **a, t_list **b)
-{
-	t_list *x = *a;
-	t_list *y = *b;
-	printf("STACK_A\n");
-	while (x != NULL)
-	{
-//		usleep(100000);
-		printf("%d\n", *(int *)x->content);
-		x = x->next;
-	}
-	if (y != NULL)
-		printf("STACK_B\n");
-	while (y != NULL)
-	{
-//		usleep(100000);
-		printf("%d\n", *(int *)y->content);
-		y = y->next;
-	}
-}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -130,16 +108,14 @@ int	main(int argc, char **argv)
 		ft_error(&a);
 	while (i++ < argc && argv++)
 		a = ft_fill(*argv, a);
-	
 	if (ft_lst_order(a) == 0)
-		return (0) ;
+		return (0);
 	if (ft_lstsize(a) <= 5)
 		ft_small_short(&a, &b);
 	else if (ft_lstsize(a) <= 100)
 		ft_big_short(&a, &b, 4);
 	else
 		ft_big_short(&a, &b, 8);
-	
-	checking (&a, &b);
-//	system("leaks push_swap");
+	ft_free(&a);
+	ft_free(&b);
 }
